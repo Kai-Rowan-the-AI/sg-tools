@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import Wrapper from "@/components/wrapper";
 import Container from "@/components/container";
 import DealerList from "./dealer-list";
+import { ScrollShadow } from "@/components/ui/scroll-shadow";
 import { DEALERS } from "@/constants/dealers";
 import type { DealerCategory } from "@/types/dealers";
 
@@ -106,13 +107,16 @@ export default function WhereToBuyContent() {
           </div>
 
           {/* List */}
-          <div className="order-2 lg:order-1 lg:max-h-[560px] lg:overflow-y-auto">
+          <ScrollShadow
+            className="order-2 lg:order-1"
+            scrollableClassName="lg:max-h-[560px]"
+          >
             <DealerList
               dealers={filteredDealers}
               selectedDealerId={selectedDealerId}
               onSelectDealer={setSelectedDealerId}
             />
-          </div>
+          </ScrollShadow>
         </div>
       </Container>
     </Wrapper>
