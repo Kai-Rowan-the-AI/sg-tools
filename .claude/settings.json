@@ -13,6 +13,7 @@
       "Bash(git fetch *)",
       "Bash(git remote *)",
       "Bash(git config *)",
+      "Bash(gh label list *)",
       "Bash(ls *)",
       "Bash(cat *)",
       "Bash(head *)",

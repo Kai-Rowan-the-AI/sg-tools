@@ -44,7 +44,7 @@ const Hero = async () => {
         <div className="relative mx-auto max-w-7xl rounded-2xl md:rounded-[32px] border border-neutral-200/50 bg-neutral-100 p-2 backdrop-blur-lg dark:border-neutral-700 dark:bg-neutral-800/50 mt-10 md:mt-14">
           <div className="rounded-lg md:rounded-[24px] border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-black">
             <Image
-              src="/dashboard-1.webp"
+              src="/dashboard.png"
               alt="Dashboard"
               priority
               width={2932}
