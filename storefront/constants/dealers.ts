@@ -100,17 +100,6 @@ export const DEALERS: Dealer[] = [
 
   // === Ovlašćeni servisi ===
   {
-    id: "stridon-group-service",
-    name: "Stridon Group D.O.O.",
-    address: "Vojislava Ilića 141g",
-    city: "Beograd",
-    phone: "011/4520-171",
-    email: "office@stridon.rs",
-    website: "https://www.prodavnicaalata.rs/",
-    category: "service",
-    coordinates: { lat: 44.7724, lng: 20.4989 },
-  },
-  {
     id: "hammercom",
     name: "Hammercom D.O.O.",
     address: "Valjevska 3",

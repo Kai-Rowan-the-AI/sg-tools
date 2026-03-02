@@ -95,9 +95,9 @@ export default function WhereToBuyContent() {
         </p>
 
         {/* Main grid: list left, map right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 lg:items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6">
           {/* Map - shows first on mobile */}
-          <div className="order-1 lg:order-2 rounded-lg overflow-hidden border border-border h-[320px] sm:h-[380px] lg:h-[560px] lg:sticky lg:top-20">
+          <div className="order-1 lg:order-2 rounded-lg overflow-hidden border border-border h-[320px] sm:h-[380px] lg:h-[560px]">
             <DealerMap
               dealers={filteredDealers}
               selectedDealerId={selectedDealerId}
@@ -106,7 +106,7 @@ export default function WhereToBuyContent() {
           </div>
 
           {/* List */}
-          <div className="order-2 lg:order-1 lg:max-h-[calc(100vh-12rem)] lg:overflow-y-auto">
+          <div className="order-2 lg:order-1 lg:max-h-[560px] lg:overflow-y-auto">
             <DealerList
               dealers={filteredDealers}
               selectedDealerId={selectedDealerId}
