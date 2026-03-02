@@ -1,12 +1,15 @@
 import { CONTACT_CARDS } from "@/constants";
 import Container from "../container";
 import HeroHeader from "../hero-header";
+import { getTranslations } from "next-intl/server";
 
-const ContactHero = () => {
+const ContactHero = async () => {
+  const t = await getTranslations("contact");
+
   return (
     <HeroHeader
-      title="Let's Start a Conversation"
-      description="Have questions or want to learn more? We're here to help. Reach out to our team and let's discuss how we can support your needs"
+      title={t("heroTitle")}
+      description={t("heroDescription")}
     >
       <Container delay={0.3} className="w-full">
         <div className="flex flex-col md:flex-row justify-center gap-6 w-full mt-10">
@@ -18,7 +21,7 @@ const ContactHero = () => {
               <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center">
                 <card.icon className="size-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mt-4">{card.title}</h3>
+              <h3 className="text-lg font-semibold mt-4">{t(card.titleKey)}</h3>
               <p className="text-sm text-muted-foreground mt-1">
                 {card.value}
               </p>

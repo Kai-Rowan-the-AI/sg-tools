@@ -2,6 +2,7 @@ import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
 import Container from "./container";
 import Wrapper from "./wrapper";
+import { getTranslations } from "next-intl/server";
 
 const companies = [
   { src: "/companies/coligoars.png", alt: "Coligoars" },
@@ -19,14 +20,16 @@ const companies = [
   { src: "/companies/vitorog.png", alt: "Vitorog" },
 ];
 
-const Companies = () => {
+const Companies = async () => {
+  const t = await getTranslations("companies");
+
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <Wrapper>
         <Container>
           <div className="flex flex-col items-center justify-center px-2 md:px-0">
             <h4 className="text-xl lg:text-2xl font-semibold text-center tracking-tight">
-              Companies that trust SG Tools
+              {t("heading")}
             </h4>
           </div>
         </Container>

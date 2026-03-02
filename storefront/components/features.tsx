@@ -7,35 +7,28 @@ import {
 } from "lucide-react";
 import Container from "./container";
 import Wrapper from "./wrapper";
+import { getTranslations } from "next-intl/server";
 
-const FEATURES = [
+const FEATURE_STYLES = [
   {
-    title: "Besplatna dostava",
-    desc: "Za kupovinu preko 15.000 RSD",
     icon: Truck,
     color: "text-blue-400",
     bg: "bg-blue-500/15",
     border: "border-blue-500/30",
   },
   {
-    title: "Brza isporuka",
-    desc: "Isporuka 1-5 radnih dana",
     icon: Clock,
     color: "text-amber-400",
     bg: "bg-amber-500/15",
     border: "border-amber-500/30",
   },
   {
-    title: "Sigurna kupovina",
-    desc: "Garancija na kupljene mašine",
     icon: ShieldCheck,
     color: "text-emerald-400",
     bg: "bg-emerald-500/15",
     border: "border-emerald-500/30",
   },
   {
-    title: "Čekovima građana",
-    desc: "Na 4 rate bez kamate",
     icon: CreditCard,
     color: "text-violet-400",
     bg: "bg-violet-500/15",
@@ -43,29 +36,32 @@ const FEATURES = [
   },
 ];
 
-const Features = () => {
+const Features = async () => {
+  const t = await getTranslations("features");
+  const items = t.raw("items") as Array<{ title: string; desc: string }>;
+
   return (
     <div className="flex flex-col items-center justify-center w-full py-16 lg:py-24">
       <Wrapper>
         <Container>
           <div className="flex flex-col items-start justify-start lg:items-center lg:justify-center">
             <h2 className="text-3xl lg:text-4xl font-semibold text-left lg:text-center tracking-tight">
-              Zašto kupovati kod nas?
+              {t("heading")}
             </h2>
           </div>
         </Container>
 
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 mt-10">
-            {FEATURES.map((feature, index) => (
+            {items.map((item, index) => (
               <Feature
                 key={index}
-                title={feature.title}
-                desc={feature.desc}
-                icon={feature.icon}
-                color={feature.color}
-                bg={feature.bg}
-                border={feature.border}
+                title={item.title}
+                desc={item.desc}
+                icon={FEATURE_STYLES[index].icon}
+                color={FEATURE_STYLES[index].color}
+                bg={FEATURE_STYLES[index].bg}
+                border={FEATURE_STYLES[index].border}
               />
             ))}
           </div>
